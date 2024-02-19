@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.strategy;
+
+import com.gildedrose.Item;
 
 public class ItemUpdater {
     final Item item;
@@ -7,7 +9,7 @@ public class ItemUpdater {
         this.item = item;
     }
 
-    void updateItem() {
+    public void updateItem() {
         updateQuality();
         updateSellIn();
         if (item.sellIn < 0) {

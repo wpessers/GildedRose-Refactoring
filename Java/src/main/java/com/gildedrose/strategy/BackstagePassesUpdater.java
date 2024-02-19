@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.strategy;
+
+import com.gildedrose.Item;
 
 public class BackstagePassesUpdater extends ItemUpdater {
     public BackstagePassesUpdater(Item item) {

@@ -1,6 +1,8 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemUpdaterFactory.create;
+import com.gildedrose.strategy.ItemUpdater;
+
+import static com.gildedrose.strategy.ItemUpdaterFactory.create;
 
 class GildedRose {
     Item[] items;
