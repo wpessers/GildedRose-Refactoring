@@ -122,14 +122,14 @@ class GildedRoseTest {
 
     @Test
     void givenSulfuras_whenUpdateQuality_thenSellInAndQualityDoNotChange() {
-        final Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 10, 10);
+        final Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 10, 80);
         Item[] items = new Item[]{sulfuras};
         GildedRose app = new GildedRose(items);
 
         app.updateItems();
 
         assertEquals(10, sulfuras.sellIn);
-        assertEquals(10, sulfuras.quality);
+        assertEquals(80, sulfuras.quality);
     }
 
     @Test
@@ -204,4 +204,27 @@ class GildedRoseTest {
         assertEquals(50, backstagePasses.quality);
     }
 
+    @Test
+    void givenConjuredItemWithSellIn4AndQuality10_whenUpdateQuality_thenQualityDecreasesTo8() {
+        final Item conjuredItem = new Item("Conjured item", 4, 10);
+        Item[] items = new Item[]{conjuredItem};
+        GildedRose app = new GildedRose(items);
+
+        app.updateItems();
+
+        assertEquals(3, conjuredItem.sellIn);
+        assertEquals(8, conjuredItem.quality);
+    }
+
+    @Test
+    void givenConjuredItemPastSellInAndQuality10_whenUpdateQuality_thenQualityDecreasesTo6() {
+        final Item conjuredItem = new Item("Conjured item", -1, 10);
+        Item[] items = new Item[]{conjuredItem};
+        GildedRose app = new GildedRose(items);
+
+        app.updateItems();
+
+        assertEquals(-2, conjuredItem.sellIn);
+        assertEquals(6, conjuredItem.quality);
+    }
 }
