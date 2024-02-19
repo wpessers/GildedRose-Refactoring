@@ -6,7 +6,7 @@ public class BackstagePassesUpdater extends ItemUpdater {
     }
 
     @Override
-    void updateQuality() {
+    protected void updateQuality() {
         incrementQuality();
 
         if (item.sellIn < 11) {
@@ -19,7 +19,7 @@ public class BackstagePassesUpdater extends ItemUpdater {
     }
 
     @Override
-    void updateExpiredQuality() {
+    protected void updateExpiredQuality() {
         item.quality = 0;
     }
 }

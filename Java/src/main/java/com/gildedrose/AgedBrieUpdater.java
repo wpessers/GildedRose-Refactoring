@@ -6,12 +6,12 @@ public class AgedBrieUpdater extends ItemUpdater {
     }
 
     @Override
-    void updateQuality() {
+    protected void updateQuality() {
         incrementQuality();
     }
 
     @Override
-    void updateExpiredQuality() {
+    protected void updateExpiredQuality() {
         incrementQuality();
     }
 }

@@ -6,7 +6,7 @@ public class ConjuredUpdater extends ItemUpdater {
     }
 
     @Override
-    void decrementQuality() {
+    protected void decrementQuality() {
         item.quality = Math.max(item.quality - 2, 0);
     }
 }

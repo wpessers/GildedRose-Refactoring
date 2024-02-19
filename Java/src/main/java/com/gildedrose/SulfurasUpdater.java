@@ -6,14 +6,14 @@ public class SulfurasUpdater extends ItemUpdater {
     }
 
     @Override
-    void updateQuality() {
+    protected void updateQuality() {
     }
 
     @Override
-    void updateSellIn() {
+    protected void updateSellIn() {
     }
 
     @Override
-    void updateExpiredQuality() {
+    protected void updateExpiredQuality() {
     }
 }
