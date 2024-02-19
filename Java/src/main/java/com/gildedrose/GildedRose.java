@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import static com.gildedrose.BaseItem.*;
+import static com.gildedrose.ItemUpdater.*;
 
 class GildedRose {
     Item[] items;
@@ -11,8 +11,8 @@ class GildedRose {
 
     public void updateItems() {
         for (Item item : items) {
-            BaseItem baseItem = create(item);
-            baseItem.updateItem();
+            ItemUpdater itemUpdater = create(item);
+            itemUpdater.updateItem();
         }
     }
 }

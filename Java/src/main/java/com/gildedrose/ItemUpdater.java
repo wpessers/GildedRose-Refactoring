@@ -1,29 +1,29 @@
 package com.gildedrose;
 
-public class BaseItem {
+public class ItemUpdater {
     public static final String AGED_BRIE = "Aged Brie";
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     final Item item;
 
-    public BaseItem(Item item) {
+    public ItemUpdater(Item item) {
         this.item = item;
     }
 
-    public static BaseItem create(Item item) {
+    public static ItemUpdater create(Item item) {
         switch (item.name) {
             case AGED_BRIE:
-                return new AgedBrie(item);
+                return new AgedBrieUpdater(item);
             case BACKSTAGE_PASSES:
-                return new BackstagePasses(item);
+                return new BackstagePassesUpdater(item);
             case SULFURAS:
-                ;
+                return new SulfurasUpdater(item);
             default:
-                return new BaseItem(item);
+                return new ItemUpdater(item);
         }
     }
 
-    protected void updateItem() {
+    void updateItem() {
         updateQuality();
         updateSellIn();
         if (item.sellIn < 0) {
@@ -31,23 +31,16 @@ public class BaseItem {
         }
     }
 
-    protected void updateQuality() {
-        if (!item.name.equals(SULFURAS)) {
-            decrementQuality();
-        }
+    void updateQuality() {
+        decrementQuality();
     }
 
-    protected void updateSellIn() {
-        if (item.name.equals(SULFURAS)) {
-            return;
-        }
+    void updateSellIn() {
         item.sellIn--;
     }
 
-    protected void updateExpiredQuality() {
-        if (!item.name.equals(SULFURAS)) {
-            decrementQuality();
-        }
+    void updateExpiredQuality() {
+        decrementQuality();
     }
 
     void incrementQuality() {
