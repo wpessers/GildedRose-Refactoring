@@ -227,4 +227,16 @@ class GildedRoseTest {
         assertEquals(-2, conjuredItem.sellIn);
         assertEquals(6, conjuredItem.quality);
     }
+
+    @Test
+    void givenConjuredItemPastSellInAndQuality3_whenUpdateQuality_thenQualityDecreasesTo0() {
+        final Item conjuredItem = new Item("Conjured Mana Cake", -1, 3);
+        Item[] items = new Item[]{conjuredItem};
+        GildedRose app = new GildedRose(items);
+
+        app.updateItems();
+
+        assertEquals(-2, conjuredItem.sellIn);
+        assertEquals(0, conjuredItem.quality);
+    }
 }
