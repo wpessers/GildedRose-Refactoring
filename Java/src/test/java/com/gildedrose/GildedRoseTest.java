@@ -206,7 +206,7 @@ class GildedRoseTest {
 
     @Test
     void givenConjuredItemWithSellIn4AndQuality10_whenUpdateQuality_thenQualityDecreasesTo8() {
-        final Item conjuredItem = new Item("Conjured item", 4, 10);
+        final Item conjuredItem = new Item("Conjured Mana Cake", 4, 10);
         Item[] items = new Item[]{conjuredItem};
         GildedRose app = new GildedRose(items);
 
@@ -218,7 +218,7 @@ class GildedRoseTest {
 
     @Test
     void givenConjuredItemPastSellInAndQuality10_whenUpdateQuality_thenQualityDecreasesTo6() {
-        final Item conjuredItem = new Item("Conjured item", -1, 10);
+        final Item conjuredItem = new Item("Conjured Mana Cake", -1, 10);
         Item[] items = new Item[]{conjuredItem};
         GildedRose app = new GildedRose(items);
 
